@@ -53,13 +53,14 @@ class AuthController extends Controller
         return response()->json([
             'data'=>$user,
             'messages'=>'login successfully',
+            'status'=>200,
             'token'=>$token,
         ],200);
     }
 
     public function myprofile()
     {
-        $user = auth()->user()->load('posts'); 
+        $user = auth()->user()->load('posts');
 
         return new UserResource($user);
     }
